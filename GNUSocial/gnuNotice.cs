@@ -20,6 +20,8 @@ namespace GNUSocial
         public string notice_name;
         public string notice_date;
         public string in_reply_to_status_id;
+        public string statusnet_conversation_id;
+        public List<dynamic> attentions;
         public string user;
         public string pass;
         public string server;
@@ -49,6 +51,14 @@ namespace GNUSocial
             newNotice nn = new newNotice();
             nn.reply_id = notice_id;
             nn.reply_to = notice_name;
+            if (attentions != null)
+            {
+                nn.attentions = attentions;
+            }
+            if (!string.IsNullOrEmpty(statusnet_conversation_id))
+            {
+                nn.statusnet_conversation_id = statusnet_conversation_id;
+            }
             nn.Text = "Replying to: " + "("+notice_id+")";
             nn.ShowDialog();
             nn.Dispose();

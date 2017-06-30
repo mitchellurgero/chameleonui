@@ -123,20 +123,26 @@ namespace GNUSocial
                 dynamic obj = serializer.Deserialize(e.Result, typeof(object));
                 log(obj.Length.ToString() + " notices received.");
                 Array.Reverse(obj);
-                for (int i = 1; i <= obj.Length; i++)
+                for (int i = 1; i < obj.Length; i++)
                 {
                     //Let's just process one for now, see how it looks.
                     gnuNotice gn = new gnuNotice();
                     gn.notice_id = obj[i].id.ToString();
-                    //if(string.IsNullOrEmpty(obj[i].in_reply_to_status_id.ToString()))
-                    //{
-                    //    gn.in_reply_to_status_id = obj[i].in_reply_to_status_id.ToString();
-                    //}
-                    gn.notice_text = obj[i].statusnet_html;
+                    gn.notice_text = obj[i].text;//obj[i].statusnet_html;
                     gn.notice_date = obj[i].created_at;
                     gn.notice_user = obj[i].user.name;
                     gn.notice_name = obj[i].user.screen_name;
                     gn.profile_pic = obj[i].user.profile_image_url;
+                    //Keep statusnet conversation active, and tag everyone that needs to be tagged.
+                    if (!string.IsNullOrEmpty(obj[i].statusnet_conversation_id.ToString()))
+                    {
+                        gn.statusnet_conversation_id = obj[i].statusnet_conversation_id.ToString();
+                    }
+                    if (obj[i].attentions != null && obj[i].attentions.Count > 0)
+                    {
+                        
+                        gn.attentions = obj[i].attentions;
+                    }
                     gn.Dock = DockStyle.Top;
                     homePanel.Controls.Add(gn);
                     //break;
@@ -161,15 +167,26 @@ namespace GNUSocial
                 dynamic obj = serializer.Deserialize(e.Result, typeof(object));
                 log(obj.Length.ToString() + " notices received.");
                 Array.Reverse(obj);
-                for (int i = 1; i <= obj.Length; i++)
+                for (int i = 1; i < obj.Length; i++)
                 {
                     //Let's just process one for now, see how it looks.
                     gnuNotice gn = new gnuNotice();
                     gn.notice_id = obj[i].id.ToString();
-                    gn.notice_text = obj[i].statusnet_html;
+                    gn.notice_text = obj[i].text;//obj[i].statusnet_html;
                     gn.notice_date = obj[i].created_at;
                     gn.notice_user = obj[i].user.name;
+                    gn.notice_name = obj[i].user.screen_name;
                     gn.profile_pic = obj[i].user.profile_image_url;
+                    //Keep statusnet conversation active, and tag everyone that needs to be tagged.
+                    if (!string.IsNullOrEmpty(obj[i].statusnet_conversation_id.ToString()))
+                    {
+                        gn.statusnet_conversation_id = obj[i].statusnet_conversation_id.ToString();
+                    }
+                    if (obj[i].attentions != null && obj[i].attentions.Count > 0)
+                    {
+
+                        gn.attentions = obj[i].attentions;
+                    }
                     gn.Dock = DockStyle.Top;
                     publicPanel.Controls.Add(gn);
                     //break;
