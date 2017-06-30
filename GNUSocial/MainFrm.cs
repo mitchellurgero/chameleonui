@@ -20,7 +20,7 @@ namespace GNUSocial
         public string pass;
         public bool isRefreshingHome = false;
         public bool isRefreshingPublic = false;
-        public string version = "GNU/Social Windows API App v0.1a";
+        public string version = "ChameleonUI - GS Windows API App v0.1a";
         public MainFrm()
         {
             InitializeComponent();
