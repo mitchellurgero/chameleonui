@@ -20,6 +20,7 @@ namespace GNUSocial
         public string pass;
         public bool isRefreshingHome = false;
         public bool isRefreshingPublic = false;
+        public string version = "GNU/Social Windows API App v0.1a";
         public MainFrm()
         {
             InitializeComponent();
@@ -30,6 +31,7 @@ namespace GNUSocial
         }
         private void MainFrm_Load(object sender, EventArgs e)
         {
+            metroLabel1.Text = version;
             login();
             
         }

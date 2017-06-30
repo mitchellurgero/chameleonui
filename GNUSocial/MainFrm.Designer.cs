@@ -33,8 +33,9 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
-            this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
             this.homePanel = new System.Windows.Forms.Panel();
+            this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
+            this.publicPanel = new System.Windows.Forms.Panel();
             this.userAvatar = new System.Windows.Forms.PictureBox();
             this.userName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -42,9 +43,9 @@
             this.noticeCount = new System.Windows.Forms.Label();
             this.followCount = new System.Windows.Forms.Label();
             this.idName = new System.Windows.Forms.Label();
-            this.publicPanel = new System.Windows.Forms.Panel();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.metroButton2 = new MetroFramework.Controls.MetroButton();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.metroTabPage2.SuspendLayout();
@@ -78,6 +79,15 @@
             this.metroTabPage1.Text = "Home";
             this.metroTabPage1.VerticalScrollbarBarColor = true;
             // 
+            // homePanel
+            // 
+            this.homePanel.AutoScroll = true;
+            this.homePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.homePanel.Location = new System.Drawing.Point(0, 0);
+            this.homePanel.Name = "homePanel";
+            this.homePanel.Size = new System.Drawing.Size(423, 335);
+            this.homePanel.TabIndex = 2;
+            // 
             // metroTabPage2
             // 
             this.metroTabPage2.Controls.Add(this.publicPanel);
@@ -89,14 +99,14 @@
             this.metroTabPage2.Text = "Public";
             this.metroTabPage2.VerticalScrollbarBarColor = true;
             // 
-            // homePanel
+            // publicPanel
             // 
-            this.homePanel.AutoScroll = true;
-            this.homePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.homePanel.Location = new System.Drawing.Point(0, 0);
-            this.homePanel.Name = "homePanel";
-            this.homePanel.Size = new System.Drawing.Size(423, 335);
-            this.homePanel.TabIndex = 2;
+            this.publicPanel.AutoScroll = true;
+            this.publicPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.publicPanel.Location = new System.Drawing.Point(0, 0);
+            this.publicPanel.Name = "publicPanel";
+            this.publicPanel.Size = new System.Drawing.Size(423, 335);
+            this.publicPanel.TabIndex = 2;
             // 
             // userAvatar
             // 
@@ -161,15 +171,6 @@
             this.idName.TabIndex = 7;
             this.idName.Text = "{USERNAME}";
             // 
-            // publicPanel
-            // 
-            this.publicPanel.AutoScroll = true;
-            this.publicPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.publicPanel.Location = new System.Drawing.Point(0, 0);
-            this.publicPanel.Name = "publicPanel";
-            this.publicPanel.Size = new System.Drawing.Size(423, 335);
-            this.publicPanel.TabIndex = 2;
-            // 
             // metroButton1
             // 
             this.metroButton1.Location = new System.Drawing.Point(242, 63);
@@ -188,11 +189,23 @@
             this.metroButton2.Text = "Logout";
             this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
             // 
+            // metroLabel1
+            // 
+            this.metroLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.Location = new System.Drawing.Point(26, 432);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(71, 19);
+            this.metroLabel1.TabIndex = 10;
+            this.metroLabel1.Text = "{VERSION}";
+            // 
             // MainFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(471, 454);
+            this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.metroButton2);
             this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.idName);
@@ -233,5 +246,6 @@
         private System.Windows.Forms.Panel publicPanel;
         private MetroFramework.Controls.MetroButton metroButton1;
         private MetroFramework.Controls.MetroButton metroButton2;
+        private MetroFramework.Controls.MetroLabel metroLabel1;
     }
 }
